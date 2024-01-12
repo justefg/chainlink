@@ -1566,6 +1566,7 @@ func NewOffChainAggregatorV2ConfigForCCIPPlugin[T ccipconfig.OffchainConfig](
 		ocrConfig.S,
 		ocrConfig.Oracles,
 		ocrConfig.ReportingPluginConfig,
+		nil,
 		ocrConfig.MaxDurationQuery.Duration(),
 		ocrConfig.MaxDurationObservation.Duration(),
 		ocrConfig.MaxDurationReport.Duration(),

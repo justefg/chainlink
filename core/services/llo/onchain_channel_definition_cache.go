@@ -176,6 +176,9 @@ func (c *channelDefinitionCache) Start(ctx context.Context) error {
 func (c *channelDefinitionCache) pollChainLoop() {
 	defer c.wg.Done()
 
+	ctx, cancel := services.StopChan(c.chStop).NewCtx()
+	defer cancel()
+
 	pollT := services.NewTicker(c.logPollInterval)
 	defer pollT.Stop()
 
@@ -185,7 +188,7 @@ func (c *channelDefinitionCache) pollChainLoop() {
 			return
 		case <-pollT.C:
 			// failures will be tried again on the next tick
-			if err := c.readLogs(); err != nil {
+			if err := c.readLogs(ctx); err != nil {
 				c.lggr.Errorw("Failed to fetch channel definitions from chain", "err", err)
 				continue
 			}
@@ -193,9 +196,7 @@ func (c *channelDefinitionCache) pollChainLoop() {
 	}
 }
 
-func (c *channelDefinitionCache) readLogs() (err error) {
-	ctx, cancel := services.StopChan(c.chStop).NewCtx()
-	defer cancel()
+func (c *channelDefinitionCache) readLogs(ctx context.Context) (err error) {
 	latestBlock, err := c.lp.LatestBlock(ctx)
 	if errors.Is(err, sql.ErrNoRows) {
 		c.lggr.Debug("Logpoller has no logs yet, skipping poll")

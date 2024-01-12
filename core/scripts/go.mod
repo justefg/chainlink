@@ -7,7 +7,7 @@ replace github.com/smartcontractkit/chainlink/v2 => ../../
 
 require (
 	github.com/docker/docker v24.0.7+incompatible
-	github.com/docker/go-connections v0.4.0
+	github.com/docker/go-connections v0.5.0
 	github.com/ethereum/go-ethereum v1.13.8
 	github.com/gkampitakis/go-snaps v0.5.4
 	github.com/google/go-cmp v0.6.0
@@ -21,10 +21,10 @@ require (
 	github.com/pelletier/go-toml/v2 v2.2.0
 	github.com/prometheus/client_golang v1.17.0
 	github.com/shopspring/decimal v1.4.0
-	github.com/smartcontractkit/chainlink-automation v1.0.4
-	github.com/smartcontractkit/chainlink-common v0.2.2-0.20240909141252-663388d38293
+	github.com/smartcontractkit/chainlink-automation v1.0.5-0.20240830223112-2458875146a8
+	github.com/smartcontractkit/chainlink-common v0.2.2-0.20240910121609-a7eed6fb3085
 	github.com/smartcontractkit/chainlink/v2 v2.0.0-00010101000000-000000000000
-	github.com/smartcontractkit/libocr v0.0.0-20240717100443-f6226e09bee7
+	github.com/smartcontractkit/libocr v0.0.0-20240830084433-f4f9f401c0ac
 	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.15.0
 	github.com/stretchr/testify v1.9.0
@@ -270,17 +270,17 @@ require (
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
 	github.com/shirou/gopsutil/v3 v3.24.3 // indirect
 	github.com/smartcontractkit/chain-selectors v1.0.21 // indirect
-	github.com/smartcontractkit/chainlink-ccip v0.0.0-20240910072312-810030689426 // indirect
-	github.com/smartcontractkit/chainlink-cosmos v0.4.1-0.20240710121324-3ed288aa9b45 // indirect
-	github.com/smartcontractkit/chainlink-data-streams v0.0.0-20240904093355-e40169857652 // indirect
-	github.com/smartcontractkit/chainlink-feeds v0.0.0-20240909142234-299749c4c0b5 // indirect
-	github.com/smartcontractkit/chainlink-solana v1.1.1-0.20240904154226-abc1ed5c962a // indirect
-	github.com/smartcontractkit/chainlink-starknet/relayer v0.0.1-beta-test.0.20240709043547-03612098f799 // indirect
+	github.com/smartcontractkit/chainlink-ccip v0.0.0-20240910120526-bfe843cc6fd0 // indirect
+	github.com/smartcontractkit/chainlink-cosmos v0.4.1-0.20240903110056-ed28311039ab // indirect
+	github.com/smartcontractkit/chainlink-data-streams v0.0.0-20240909212503-65c2f9dadebb // indirect
+	github.com/smartcontractkit/chainlink-feeds v0.0.0-20240909212107-7f08da851c42 // indirect
+	github.com/smartcontractkit/chainlink-solana v1.1.1-0.20240910122124-67d703a1e0c7 // indirect
+	github.com/smartcontractkit/chainlink-starknet/relayer v0.0.1-beta-test.0.20240910122455-fdea43e1725a // indirect
 	github.com/smartcontractkit/grpc-proxy v0.0.0-20240830132753-a7e17fec5ab7 // indirect
-	github.com/smartcontractkit/tdh2/go/ocr2/decryptionplugin v0.0.0-20230906073235-9e478e5e19f1 // indirect
-	github.com/smartcontractkit/tdh2/go/tdh2 v0.0.0-20230906073235-9e478e5e19f1 // indirect
-	github.com/smartcontractkit/wsrpc v0.7.3 // indirect
-	github.com/spf13/afero v1.9.5 // indirect
+	github.com/smartcontractkit/tdh2/go/ocr2/decryptionplugin v0.0.0-20240801223644-b81c0f1b9c79 // indirect
+	github.com/smartcontractkit/tdh2/go/tdh2 v0.0.0-20240801223644-b81c0f1b9c79 // indirect
+	github.com/smartcontractkit/wsrpc v0.8.1 // indirect
+	github.com/spf13/afero v1.10.0 // indirect
 	github.com/spf13/cast v1.6.0 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
@@ -321,10 +321,18 @@ require (
 	go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin v0.49.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.53.0 // indirect
 	go.opentelemetry.io/otel v1.28.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc v0.0.0-20240823153156-2a54df7bffb9 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.28.0 // indirect
+	go.opentelemetry.io/otel/exporters/stdout/stdoutlog v0.4.0 // indirect
+	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.28.0 // indirect
+	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.28.0 // indirect
+	go.opentelemetry.io/otel/log v0.4.0 // indirect
 	go.opentelemetry.io/otel/metric v1.28.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.28.0 // indirect
+	go.opentelemetry.io/otel/sdk/log v0.4.0 // indirect
+	go.opentelemetry.io/otel/sdk/metric v1.28.0 // indirect
 	go.opentelemetry.io/otel/trace v1.28.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.3.1 // indirect
 	go.uber.org/multierr v1.11.0 // indirect

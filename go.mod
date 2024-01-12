@@ -73,18 +73,18 @@ require (
 	github.com/shirou/gopsutil/v3 v3.24.3
 	github.com/shopspring/decimal v1.4.0
 	github.com/smartcontractkit/chain-selectors v1.0.21
-	github.com/smartcontractkit/chainlink-automation v1.0.4
-	github.com/smartcontractkit/chainlink-ccip v0.0.0-20240910072312-810030689426
-	github.com/smartcontractkit/chainlink-common v0.2.2-0.20240909141252-663388d38293
-	github.com/smartcontractkit/chainlink-cosmos v0.4.1-0.20240710121324-3ed288aa9b45
-	github.com/smartcontractkit/chainlink-data-streams v0.0.0-20240904093355-e40169857652
-	github.com/smartcontractkit/chainlink-feeds v0.0.0-20240909142234-299749c4c0b5
-	github.com/smartcontractkit/chainlink-solana v1.1.1-0.20240904154226-abc1ed5c962a
-	github.com/smartcontractkit/chainlink-starknet/relayer v0.0.1-beta-test.0.20240709043547-03612098f799
-	github.com/smartcontractkit/libocr v0.0.0-20240717100443-f6226e09bee7
-	github.com/smartcontractkit/tdh2/go/ocr2/decryptionplugin v0.0.0-20230906073235-9e478e5e19f1
-	github.com/smartcontractkit/tdh2/go/tdh2 v0.0.0-20230906073235-9e478e5e19f1
-	github.com/smartcontractkit/wsrpc v0.7.3
+	github.com/smartcontractkit/chainlink-automation v1.0.5-0.20240830223112-2458875146a8
+	github.com/smartcontractkit/chainlink-ccip v0.0.0-20240910120526-bfe843cc6fd0
+	github.com/smartcontractkit/chainlink-common v0.2.2-0.20240910121609-a7eed6fb3085
+	github.com/smartcontractkit/chainlink-cosmos v0.4.1-0.20240903110056-ed28311039ab
+	github.com/smartcontractkit/chainlink-data-streams v0.0.0-20240909212503-65c2f9dadebb
+	github.com/smartcontractkit/chainlink-feeds v0.0.0-20240909212107-7f08da851c42
+	github.com/smartcontractkit/chainlink-solana v1.1.1-0.20240910122124-67d703a1e0c7
+	github.com/smartcontractkit/chainlink-starknet/relayer v0.0.1-beta-test.0.20240910122455-fdea43e1725a
+	github.com/smartcontractkit/libocr v0.0.0-20240830084433-f4f9f401c0ac
+	github.com/smartcontractkit/tdh2/go/ocr2/decryptionplugin v0.0.0-20240801223644-b81c0f1b9c79
+	github.com/smartcontractkit/tdh2/go/tdh2 v0.0.0-20240801223644-b81c0f1b9c79
+	github.com/smartcontractkit/wsrpc v0.8.1
 	github.com/spf13/cast v1.6.0
 	github.com/stretchr/testify v1.9.0
 	github.com/test-go/testify v1.1.4
@@ -120,11 +120,6 @@ require (
 )
 
 require (
-	cloud.google.com/go/auth v0.7.1 // indirect
-	cloud.google.com/go/auth/oauth2adapt v0.2.3 // indirect
-	cloud.google.com/go/compute/metadata v0.5.0 // indirect
-	cloud.google.com/go/iam v1.1.11 // indirect
-	cloud.google.com/go/storage v1.43.0 // indirect
 	contrib.go.opencensus.io/exporter/stackdriver v0.13.5 // indirect
 	cosmossdk.io/api v0.3.1 // indirect
 	cosmossdk.io/core v0.5.1 // indirect
@@ -185,6 +180,7 @@ require (
 	github.com/dgraph-io/ristretto v0.1.1 // indirect
 	github.com/dgryski/go-farm v0.0.0-20200201041132-a6ae2369ad13 // indirect
 	github.com/docker/distribution v2.8.2+incompatible // indirect
+	github.com/docker/go-connections v0.5.0 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/dvsekhvalnov/jose2go v1.7.0 // indirect
 	github.com/ethereum/c-kzg-4844 v0.4.0 // indirect
@@ -222,6 +218,8 @@ require (
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/google/go-tpm v0.9.0 // indirect
 	github.com/google/gofuzz v1.2.0 // indirect
+	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
+	github.com/googleapis/gax-go/v2 v2.12.5 // indirect
 	github.com/gorilla/context v1.1.1 // indirect
 	github.com/grafana/pyroscope-go/godeltaprof v0.1.8 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
@@ -281,6 +279,7 @@ require (
 	github.com/mtibben/percent v0.2.1 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
+	github.com/opencontainers/image-spec v1.1.0-rc5 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/petermattis/goid v0.0.0-20230317030725-371a4b8eda08 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
@@ -294,7 +293,7 @@ require (
 	github.com/sethvargo/go-retry v0.2.4 // indirect
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
 	github.com/smartcontractkit/grpc-proxy v0.0.0-20240830132753-a7e17fec5ab7 // indirect
-	github.com/spf13/afero v1.9.5 // indirect
+	github.com/spf13/afero v1.10.0 // indirect
 	github.com/spf13/cobra v1.8.0 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
@@ -326,17 +325,23 @@ require (
 	go.mongodb.org/mongo-driver v1.15.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.53.0 // indirect
-	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.53.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc v0.0.0-20240823153156-2a54df7bffb9 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.28.0 // indirect
+	go.opentelemetry.io/otel/exporters/stdout/stdoutlog v0.4.0 // indirect
+	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.28.0 // indirect
+	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.28.0 // indirect
+	go.opentelemetry.io/otel/log v0.4.0 // indirect
 	go.opentelemetry.io/otel/metric v1.28.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.28.0 // indirect
+	go.opentelemetry.io/otel/sdk/log v0.4.0 // indirect
+	go.opentelemetry.io/otel/sdk/metric v1.28.0 // indirect
 	go.opentelemetry.io/otel/trace v1.28.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.3.1 // indirect
 	go.uber.org/ratelimit v0.3.0 // indirect
 	golang.org/x/arch v0.8.0 // indirect
 	golang.org/x/sys v0.24.0 // indirect
-	google.golang.org/api v0.188.0 // indirect
 	google.golang.org/genproto v0.0.0-20240711142825-46eb208f015d // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20240822170219-fc7c04adadcd // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240822170219-fc7c04adadcd // indirect

@@ -105,6 +105,7 @@ func BuildAutoOCR2ConfigVarsWithKeyIndex(
 			S,                     // s []int,
 			oracleIdentities,      // oracles []OracleIdentityExtra,
 			offC,                  // reportingPluginConfig []byte,
+			nil,
 			20*time.Millisecond,   // maxDurationQuery time.Duration,
 			20*time.Millisecond,   // maxDurationObservation time.Duration, // good to here
 			1200*time.Millisecond, // maxDurationShouldAcceptAttestedReport time.Duration,
@@ -140,6 +141,7 @@ func BuildAutoOCR2ConfigVarsWithKeyIndex(
 			S,                     // s []int,
 			oracleIdentities,      // oracles []OracleIdentityExtra,
 			offC,                  // reportingPluginConfig []byte,
+			nil,
 			20*time.Millisecond,   // maxDurationQuery time.Duration,
 			20*time.Millisecond,   // maxDurationObservation time.Duration,
 			1200*time.Millisecond, // maxDurationReport time.Duration,
