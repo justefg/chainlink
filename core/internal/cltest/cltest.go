@@ -346,7 +346,7 @@ func NewApplicationWithConfig(t testing.TB, cfg chainlink.GeneralConfig, flagsAn
 	}
 
 	url := cfg.Database().URL()
-	db, err := pg.NewConnection(url.String(), cfg.Database().Dialect(), cfg.Database())
+	db, err := pg.NewConnection(testutils.Context(t), url.String(), cfg.Database().Dialect(), cfg.Database())
 	require.NoError(t, err)
 	t.Cleanup(func() { assert.NoError(t, db.Close()) })
 
@@ -374,7 +374,7 @@ func NewApplicationWithConfig(t testing.TB, cfg chainlink.GeneralConfig, flagsAn
 	keyStore := keystore.NewInMemory(ds, utils.FastScryptParams, lggr)
 
 	mailMon := mailbox.NewMonitor(cfg.AppID().String(), lggr.Named("Mailbox"))
-	loopRegistry := plugins.NewLoopRegistry(lggr, nil)
+	loopRegistry := plugins.NewLoopRegistry(lggr, nil, nil)
 
 	mercuryPool := wsrpc.NewPool(lggr, cache.Config{
 		LatestReportTTL:      cfg.Mercury().Cache().LatestReportTTL(),
@@ -465,7 +465,7 @@ func NewApplicationWithConfig(t testing.TB, cfg chainlink.GeneralConfig, flagsAn
 		RestrictedHTTPClient:       c,
 		UnrestrictedHTTPClient:     c,
 		SecretGenerator:            MockSecretGenerator{},
-		LoopRegistry:               plugins.NewLoopRegistry(lggr, nil),
+		LoopRegistry:               plugins.NewLoopRegistry(lggr, nil, nil),
 		MercuryPool:                mercuryPool,
 		CapabilitiesRegistry:       capabilitiesRegistry,
 		CapabilitiesDispatcher:     dispatcher,
