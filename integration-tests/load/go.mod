@@ -40,7 +40,7 @@ require (
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/smartcontractkit/chainlink-ccip v0.0.0-20240806144315-04ac101e9c95 // indirect
-	github.com/smartcontractkit/chainlink-cosmos v0.4.1-0.20240710121324-3ed288aa9b45 // indirect
+	github.com/smartcontractkit/chainlink-cosmos v0.4.1-0.20240821191029-d5b91de1201c // indirect
 	k8s.io/apimachinery v0.30.2 // indirect
 )
 

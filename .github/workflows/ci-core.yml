@@ -154,6 +154,9 @@ jobs:
           pushd $(go list -m -f "{{.Dir}}" github.com/smartcontractkit/chainlink-data-streams)
           go install ./mercury/cmd/chainlink-mercury
           popd
+          pushd $(go list -m -f "{{.Dir}}" github.com/smartcontractkit/chainlink-cosmos)
+          go install ./pkg/cosmos/cmd/chainlink-cosmos
+          popd
           pushd $(go list -m -f "{{.Dir}}" github.com/smartcontractkit/chainlink-solana)
           go install ./pkg/solana/cmd/chainlink-solana
           popd

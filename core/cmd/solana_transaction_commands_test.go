@@ -44,7 +44,7 @@ func TestShell_SolanaSendSol(t *testing.T) {
 	solanaClient.FundTestAccounts(t, []solanago.PublicKey{from.PublicKey()}, url)
 
 	require.Eventually(t, func() bool {
-		coin, err := balance(from.PublicKey(), url)
+		coin, err := solBalance(from.PublicKey(), url)
 		if err != nil {
 			return false
 		}
@@ -65,7 +65,7 @@ func TestShell_SolanaSendSol(t *testing.T) {
 	} {
 		tt := tt
 		t.Run(tt.amount, func(t *testing.T) {
-			startBal, err := balance(from.PublicKey(), url)
+			startBal, err := solBalance(from.PublicKey(), url)
 			require.NoError(t, err)
 
 			set := flag.NewFlagSet("sendsolcoins", 0)
@@ -102,7 +102,7 @@ func TestShell_SolanaSendSol(t *testing.T) {
 				time.Sleep(time.Second) // wait for tx execution
 
 				// Check balance
-				endBal, err = balance(from.PublicKey(), url)
+				endBal, err = solBalance(from.PublicKey(), url)
 				require.NoError(t, err)
 				require.NoError(t, err)
 
@@ -117,7 +117,7 @@ func TestShell_SolanaSendSol(t *testing.T) {
 			// Check balance
 			if assert.NotEqual(t, 0, startBal) && assert.NotEqual(t, 0, endBal) {
 				diff := startBal - endBal
-				receiveBal, err := balance(to.PublicKey(), url)
+				receiveBal, err := solBalance(to.PublicKey(), url)
 				require.NoError(t, err)
 				assert.Equal(t, tt.amount, strconv.FormatUint(receiveBal, 10))
 				assert.Greater(t, diff, receiveBal)
@@ -126,7 +126,7 @@ func TestShell_SolanaSendSol(t *testing.T) {
 	}
 }
 
-func balance(key solanago.PublicKey, url string) (uint64, error) {
+func solBalance(key solanago.PublicKey, url string) (uint64, error) {
 	b, err := exec.Command("solana", "balance", "--lamports", key.String(), "--url", url).Output()
 	if err != nil {
 		return 0, err

@@ -26,6 +26,7 @@ var (
 var (
 	MedianPlugin   = NewPlugin("median")
 	MercuryPlugin  = NewPlugin("mercury")
+	CosmosPlugin   = NewPlugin("cosmos")
 	SolanaPlugin   = NewPlugin("solana")
 	StarknetPlugin = NewPlugin("starknet")
 	// PrometheusDiscoveryHostName is the externally accessible hostname

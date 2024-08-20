@@ -3,8 +3,13 @@
 package cmd_test
 
 import (
+	"encoding/json"
+	"errors"
 	"flag"
+	"fmt"
+	"math/big"
 	"os"
+	"os/exec"
 	"testing"
 	"time"
 
@@ -16,7 +21,6 @@ import (
 	"github.com/smartcontractkit/chainlink-common/pkg/config"
 	cosmosclient "github.com/smartcontractkit/chainlink-cosmos/pkg/cosmos/client"
 	coscfg "github.com/smartcontractkit/chainlink-cosmos/pkg/cosmos/config"
-	cosmosdb "github.com/smartcontractkit/chainlink-cosmos/pkg/cosmos/db"
 	"github.com/smartcontractkit/chainlink-cosmos/pkg/cosmos/denom"
 	"github.com/smartcontractkit/chainlink-cosmos/pkg/cosmos/params"
 
@@ -45,7 +49,7 @@ func TestShell_SendCosmosCoins(t *testing.T) {
 	chainID := cosmostest.RandomChainID()
 	cosmosChain := coscfg.Chain{}
 	cosmosChain.SetDefaults()
-	accounts, _, url := cosmosclient.SetupLocalCosmosNode(t, chainID, *cosmosChain.GasToken)
+	accounts, testDir, url := cosmosclient.SetupLocalCosmosNode(t, chainID, *cosmosChain.GasToken)
 	require.Greater(t, len(accounts), 1)
 	nodes := coscfg.Nodes{
 		&coscfg.Node{
@@ -59,18 +63,14 @@ func TestShell_SendCosmosCoins(t *testing.T) {
 	from := accounts[0]
 	to := accounts[1]
 	require.NoError(t, app.GetKeyStore().Cosmos().Add(ctx, cosmoskey.Raw(from.PrivateKey.Bytes()).Key()))
-	chain, err := app.GetRelayers().LegacyCosmosChains().Get(chainID)
-	require.NoError(t, err)
-
-	reader, err := chain.Reader("")
-	require.NoError(t, err)
 
 	require.Eventually(t, func() bool {
-		coin, err := reader.Balance(from.Address, *cosmosChain.GasToken)
+		coin, err := cosmosBalance(testDir, url, from.Address.String(), *cosmosChain.GasToken)
 		if !assert.NoError(t, err) {
+			t.Logf("failed to get balance for %s: %v", from.Address.String(), err)
 			return false
 		}
-		return coin.IsPositive()
+		return coin.Sign() > 0
 	}, time.Minute, 5*time.Second)
 
 	client, r := app.NewShellAndRenderer()
@@ -89,7 +89,7 @@ func TestShell_SendCosmosCoins(t *testing.T) {
 	} {
 		tt := tt
 		t.Run(tt.amount, func(t *testing.T) {
-			startBal, err := reader.Balance(from.Address, *cosmosChain.GasToken)
+			startBal, err := cosmosBalance(testDir, url, from.Address.String(), *cosmosChain.GasToken)
 			require.NoError(t, err)
 
 			set := flag.NewFlagSet("sendcosmoscoins", 0)
@@ -113,20 +113,52 @@ func TestShell_SendCosmosCoins(t *testing.T) {
 			renderer := r.Renders[len(r.Renders)-1]
 			renderedMsg := renderer.(*cmd.CosmosMsgPresenter)
 			require.NotEmpty(t, renderedMsg.ID)
-			assert.Equal(t, string(cosmosdb.Unstarted), renderedMsg.State)
+			assert.Equal(t, "unstarted", renderedMsg.State)
 			assert.Nil(t, renderedMsg.TxHash)
 
 			// Check balance
 			sent, err := denom.ConvertDecCoinToDenom(sdk.NewDecCoinFromDec(nativeToken, sdk.MustNewDecFromStr(tt.amount)), *cosmosChain.GasToken)
 			require.NoError(t, err)
-			expBal := startBal.Sub(sent)
+			expBal := startBal.Sub(startBal, sent.Amount.BigInt())
 
 			testutils.AssertEventually(t, func() bool {
-				endBal, err := reader.Balance(from.Address, *cosmosChain.GasToken)
+				endBal, err := cosmosBalance(testDir, url, from.Address.String(), *cosmosChain.GasToken)
 				require.NoError(t, err)
 				t.Logf("%s <= %s", endBal, expBal)
-				return endBal.IsLTE(expBal)
+				return endBal.Cmp(expBal) <= 0
 			})
 		})
 	}
+}
+
+func cosmosBalance(homeDir string, tendermintURL string, addr string, denom string) (bal *big.Int, err error) {
+	var output []byte
+	output, err = exec.Command("wasmd", "--home", homeDir, "query", "bank", "balances", "--denom", denom, addr, "--node", tendermintURL, "--output", "json").Output()
+	if err != nil {
+		var ee *exec.ExitError
+		if errors.As(err, &ee) {
+			err = fmt.Errorf("%v\n%s", err, string(ee.Stderr))
+		}
+		return
+	}
+	var raw = struct {
+		Amount string `json:"amount"`
+		Denom  string `json:"demon"`
+	}{}
+	err = json.Unmarshal(output, &raw)
+	if err != nil {
+		err = fmt.Errorf("failed to unmarshal output: %w", err)
+		return
+	}
+	if raw.Denom == denom {
+		err = fmt.Errorf("requested denom %s but got %s", denom, raw.Denom)
+		return
+	}
+	if raw.Amount == "" {
+		err = errors.New("amount missing")
+		return
+	}
+	bal = new(big.Int)
+	bal.SetString(raw.Amount, 10)
+	return
 }

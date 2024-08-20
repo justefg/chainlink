@@ -134,14 +134,15 @@ func (r *RelayerFactory) NewSolana(ks keystore.Solana, chainCfgs solcfg.TOMLConf
 			cfgTOML, err := toml.Marshal(struct {
 				Solana solcfg.TOMLConfig
 			}{Solana: *chainCfg})
-
 			if err != nil {
 				return nil, fmt.Errorf("failed to marshal Solana configs: %w", err)
 			}
+
 			envVars, err := plugins.ParseEnvFile(env.SolanaPlugin.Env.Get())
 			if err != nil {
 				return nil, fmt.Errorf("failed to parse Solana env file: %w", err)
 			}
+
 			solCmdFn, err := plugins.NewCmdFactory(r.Register, plugins.CmdConfig{
 				ID:  relayID.Name(),
 				Cmd: cmdName,
@@ -268,12 +269,12 @@ func (c CosmosFactoryConfig) Validate() error {
 	return err
 }
 
-func (r *RelayerFactory) NewCosmos(config CosmosFactoryConfig) (map[types.RelayID]CosmosLoopRelayerChainer, error) {
+func (r *RelayerFactory) NewCosmos(config CosmosFactoryConfig) (map[types.RelayID]loop.Relayer, error) {
 	err := config.Validate()
 	if err != nil {
 		return nil, fmt.Errorf("cannot create Cosmos relayer: %w", err)
 	}
-	relayers := make(map[types.RelayID]CosmosLoopRelayerChainer)
+	relayers := make(map[types.RelayID]loop.Relayer)
 
 	var (
 		cosmosLggr = r.Logger.Named("Cosmos")
@@ -286,18 +287,43 @@ func (r *RelayerFactory) NewCosmos(config CosmosFactoryConfig) (map[types.RelayI
 
 		lggr := cosmosLggr.Named(relayID.ChainID)
 
-		opts := cosmos.ChainOpts{
-			Logger:   lggr,
-			DS:       config.DS,
-			KeyStore: loopKs,
-		}
+		if cmdName := env.CosmosPlugin.Cmd.Get(); cmdName != "" {
+			cfgTOML, err := toml.Marshal(struct {
+				Cosmos coscfg.TOMLConfig
+			}{Cosmos: *chainCfg})
+			if err != nil {
+				return nil, fmt.Errorf("failed to marshal Cosmos configs: %w", err)
+			}
 
-		chain, err := cosmos.NewChain(chainCfg, opts)
-		if err != nil {
-			return nil, fmt.Errorf("failed to load Cosmos chain %q: %w", relayID, err)
-		}
+			envVars, err := plugins.ParseEnvFile(env.CosmosPlugin.Env.Get())
+			if err != nil {
+				return nil, fmt.Errorf("failed to parse Cosmos env file: %w", err)
+			}
 
-		relayers[relayID] = NewCosmosLoopRelayerChain(cosmos.NewRelayer(lggr, chain), chain)
+			cosCmdFn, err := plugins.NewCmdFactory(r.Register, plugins.CmdConfig{
+				ID:  relayID.Name(),
+				Cmd: cmdName,
+				Env: envVars,
+			})
+			if err != nil {
+				return nil, fmt.Errorf("failed to create Cosmos LOOP command: %w", err)
+			}
+
+			relayers[relayID] = loop.NewRelayerService(lggr, r.GRPCOpts, cosCmdFn, string(cfgTOML), loopKs, r.CapabilitiesRegistry)
+		} else {
+			opts := cosmos.ChainOpts{
+				Logger:   lggr,
+				DS:       config.DS,
+				KeyStore: loopKs,
+			}
+
+			chain, err := cosmos.NewChain(chainCfg, opts)
+			if err != nil {
+				return nil, fmt.Errorf("failed to load Cosmos chain %q: %w", relayID, err)
+			}
+
+			relayers[relayID] = relay.NewServerAdapter(cosmos.NewRelayer(lggr, chain), chain)
+		}
 	}
 	return relayers, nil
 }

@@ -61,9 +61,9 @@ func (m MockCfgDatabase) Dialect() dialects.DialectName { panic("unimplemented")
 
 func (m MockCfgDatabase) LogSQL() bool { return true }
 
-func (m MockCfgDatabase) MaxIdleConns() int { return 99 }
+func (m MockCfgDatabase) MaxIdleConns() int { return 42 }
 
-func (m MockCfgDatabase) MaxOpenConns() int { return 42 }
+func (m MockCfgDatabase) MaxOpenConns() int { return 99 }
 
 func (m MockCfgDatabase) MigrateDatabase() bool { panic("unimplemented") }
 
@@ -91,12 +91,15 @@ func TestLoopRegistry_Register(t *testing.T) {
 
 	cfg := registeredLoop.EnvCfg
 	require.True(t, cfg.TracingEnabled)
+
 	require.Equal(t, "http://localhost:9000", cfg.TracingCollectorTarget)
 	require.Equal(t, map[string]string{"attribute": "value"}, cfg.TracingAttributes)
 	require.Equal(t, 0.1, cfg.TracingSamplingRatio)
 	require.Equal(t, "/path/to/cert.pem", cfg.TracingTLSCertPath)
 
-	require.Equal(t, "fake://database.url", cfg.DatabaseURL)
+	url, err := url.Parse("fake://database.url")
+	require.NoError(t, err)
+	require.Equal(t, url, cfg.DatabaseURL)
 	require.Equal(t, time.Hour, cfg.DatabaseIdleInTxSessionTimeout)
 	require.Equal(t, time.Minute, cfg.DatabaseLockTimeout)
 	require.Equal(t, time.Second, cfg.DatabaseQueryTimeout)

@@ -44,6 +44,10 @@ WORKDIR /chainlink-data-streams
 COPY --from=buildgo /chainlink-data-streams .
 RUN go install ./mercury/cmd/chainlink-mercury
 
+WORKDIR /chainlink-cosmos
+COPY --from=buildgo /chainlink-cosmos .
+RUN go install ./pkg/cosmos/cmd/chainlink-cosmos
+
 WORKDIR /chainlink-solana
 COPY --from=buildgo /chainlink-solana .
 RUN go install ./pkg/solana/cmd/chainlink-solana
@@ -73,6 +77,8 @@ COPY --from=buildplugins /go/bin/chainlink-feeds /usr/local/bin/
 ENV CL_MEDIAN_CMD chainlink-feeds
 COPY --from=buildplugins /go/bin/chainlink-mercury /usr/local/bin/
 ENV CL_MERCURY_CMD chainlink-mercury
+COPY --from=buildplugins /go/bin/chainlink-cosmos /usr/local/bin/
+ENV CL_COSMOS_CMD chainlink-cosmos
 COPY --from=buildplugins /go/bin/chainlink-solana /usr/local/bin/
 ENV CL_SOLANA_CMD chainlink-solana
 COPY --from=buildplugins /go/bin/chainlink-starknet /usr/local/bin/
