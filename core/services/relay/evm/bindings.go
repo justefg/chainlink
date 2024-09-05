@@ -3,6 +3,7 @@ package evm
 import (
 	"context"
 	"fmt"
+	"iter"
 
 	commontypes "github.com/smartcontractkit/chainlink-common/pkg/types"
 	"github.com/smartcontractkit/chainlink/v2/core/chains/evm/logpoller"
@@ -110,11 +111,12 @@ func (b bindings) BatchGetLatestValues(ctx context.Context, request commontypes.
 	return batchGetLatestValuesResults, err
 }
 
-func (b bindings) ForEach(ctx context.Context, fn func(context.Context, *contractBinding) error) error {
-	for _, cb := range b.contractBindings {
-		if err := fn(ctx, cb); err != nil {
-			return err
+func (b bindings) All() iter.Seq[*contractBinding] {
+	return func(yield func(*contractBinding) bool) {
+		for _, cb := range b.contractBindings {
+			if !yield(cb) {
+				return
+			}
 		}
 	}
-	return nil
 }

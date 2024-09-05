@@ -75,12 +75,11 @@ func NewChainReaderService(ctx context.Context, lggr logger.Logger, lp logpoller
 		DefaultMaxParallelRpcCalls,
 	)
 
-	err = cr.bindings.ForEach(ctx, func(c context.Context, cb *contractBinding) error {
+	for cb := range cr.bindings.All() {
 		for _, rb := range cb.readBindings {
 			rb.SetCodec(cr.codec)
 		}
-		return nil
-	})
+	}
 
 	return cr, err
 }
@@ -142,14 +141,17 @@ func (cr *chainReader) Name() string { return cr.lggr.Name() }
 // Start registers polling filters if contracts are already bound.
 func (cr *chainReader) Start(ctx context.Context) error {
 	return cr.StartOnce("ChainReader", func() error {
-		return cr.bindings.ForEach(ctx, func(c context.Context, cb *contractBinding) error {
+		for cb := range cr.bindings.All() {
 			for _, rb := range cb.readBindings {
 				if err := rb.Register(ctx); err != nil {
 					return err
 				}
 			}
-			return cb.Register(ctx, cr.lp)
-		})
+			if err := cb.Register(ctx, cr.lp); err != nil {
+				return err
+			}
+		}
+		return nil
 	})
 }
 
@@ -158,14 +160,17 @@ func (cr *chainReader) Close() error {
 	return cr.StopOnce("ChainReader", func() error {
 		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 		defer cancel()
-		return cr.bindings.ForEach(ctx, func(c context.Context, cb *contractBinding) error {
+		for cb := range cr.bindings.All() {
 			for _, rb := range cb.readBindings {
 				if err := rb.Unregister(ctx); err != nil {
 					return err
 				}
 			}
-			return cb.Unregister(ctx, cr.lp)
-		})
+			if err := cb.Unregister(ctx, cr.lp); err != nil {
+				return err
+			}
+		}
+		return nil
 	})
 }
 
