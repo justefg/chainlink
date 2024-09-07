@@ -2,19 +2,15 @@ package src
 
 import (
 	"context"
-	"encoding/hex"
 	"flag"
 	"fmt"
 	"log"
 	"os"
-	"strings"
 	"time"
 
 	"github.com/ethereum/go-ethereum/common"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/durationpb"
-
-	ragetypes "github.com/smartcontractkit/libocr/ragep2p/types"
 
 	capabilitiespb "github.com/smartcontractkit/chainlink-common/pkg/capabilities/pb"
 	"github.com/smartcontractkit/chainlink-common/pkg/values"
@@ -31,7 +27,7 @@ type peer struct {
 }
 
 var (
-	workflowDonPeers = []peer{
+	hardcodedWorkflowDonPeers = []peer{
 		{
 			PeerID: "12D3KooWBCF1XT5Wi8FzfgNCqRL76Swv8TRU3TiD4QiJm8NMNX7N",
 			Signer: "0x9639dCc7D0ca4468B5f684ef89F12F0B365c9F6d",
@@ -61,7 +57,7 @@ var (
 			Signer: "0x7Fa21F6f716CFaF8f249564D72Ce727253186C89",
 		},
 	}
-	triggerDonPeers = []peer{
+	hardCodedTriggerDonPeers = []peer{
 		{
 			PeerID: "12D3KooWBaiTbbRwwt2fbNifiL7Ew9tn3vds9AJE3Nf3eaVBX36m",
 			Signer: "0x9CcE7293a4Cc2621b61193135A95928735e4795F",
@@ -91,7 +87,7 @@ var (
 			Signer: "0x91d9b0062265514f012Eb8fABA59372fD9520f56",
 		},
 	}
-	targetDonPeers = []peer{
+	hardcodedTargetDonPeers = []peer{
 		{
 			PeerID: "12D3KooWJrthXtnPHw7xyHFAxo6NxifYTvc8igKYaA6wRRRqtsMb",
 			Signer: "0x3F82750353Ea7a051ec9bA011BC628284f9a5327",
@@ -119,58 +115,6 @@ func NewDeployAndInitializeCapabilitiesRegistryCommand() *deployAndInitializeCap
 
 func (c *deployAndInitializeCapabilitiesRegistryCommand) Name() string {
 	return "deploy-and-initialize-capabilities-registry"
-}
-
-func peerIDToB(peerID string) ([32]byte, error) {
-	var peerIDB ragetypes.PeerID
-	err := peerIDB.UnmarshalText([]byte(peerID))
-	if err != nil {
-		return [32]byte{}, err
-	}
-
-	return peerIDB, nil
-}
-
-func peers(ps []peer) ([][32]byte, error) {
-	out := [][32]byte{}
-	for _, p := range ps {
-		b, err := peerIDToB(p.PeerID)
-		if err != nil {
-			return nil, err
-		}
-
-		out = append(out, b)
-	}
-
-	return out, nil
-}
-
-func peerToNode(nopID uint32, p peer) (kcr.CapabilitiesRegistryNodeParams, error) {
-	peerIDB, err := peerIDToB(p.PeerID)
-	if err != nil {
-		return kcr.CapabilitiesRegistryNodeParams{}, fmt.Errorf("failed to convert peerID: %w", err)
-	}
-
-	sig := strings.TrimPrefix(p.Signer, "0x")
-	signerB, err := hex.DecodeString(sig)
-	if err != nil {
-		return kcr.CapabilitiesRegistryNodeParams{}, fmt.Errorf("failed to convert signer: %w", err)
-	}
-
-	var sigb [32]byte
-	copy(sigb[:], signerB)
-
-	return kcr.CapabilitiesRegistryNodeParams{
-		NodeOperatorId: nopID,
-		P2pId:          peerIDB,
-		Signer:         sigb,
-	}, nil
-}
-
-func newCapabilityConfig() *capabilitiespb.CapabilityConfig {
-	return &capabilitiespb.CapabilityConfig{
-		DefaultConfig: values.Proto(values.EmptyMap()).GetMapValue(),
-	}
 }
 
 // Run expects the following environment variables to be set:
@@ -276,7 +220,7 @@ func (c *deployAndInitializeCapabilitiesRegistryCommand) Run(args []string) {
 
 	nopID := recLog.NodeOperatorId
 	nodes := []kcr.CapabilitiesRegistryNodeParams{}
-	for _, wfPeer := range workflowDonPeers {
+	for _, wfPeer := range hardcodedWorkflowDonPeers {
 		n, innerErr := peerToNode(nopID, wfPeer)
 		if innerErr != nil {
 			panic(innerErr)
@@ -286,7 +230,7 @@ func (c *deployAndInitializeCapabilitiesRegistryCommand) Run(args []string) {
 		nodes = append(nodes, n)
 	}
 
-	for _, triggerPeer := range triggerDonPeers {
+	for _, triggerPeer := range hardCodedTriggerDonPeers {
 		n, innerErr := peerToNode(nopID, triggerPeer)
 		if innerErr != nil {
 			panic(innerErr)
@@ -296,7 +240,7 @@ func (c *deployAndInitializeCapabilitiesRegistryCommand) Run(args []string) {
 		nodes = append(nodes, n)
 	}
 
-	for _, targetPeer := range targetDonPeers {
+	for _, targetPeer := range hardcodedTargetDonPeers {
 		n, innerErr := peerToNode(nopID, targetPeer)
 		if innerErr != nil {
 			panic(innerErr)
@@ -314,7 +258,7 @@ func (c *deployAndInitializeCapabilitiesRegistryCommand) Run(args []string) {
 	helpers.ConfirmTXMined(ctx, env.Ec, tx, env.ChainID)
 
 	// workflow DON
-	ps, err := peers(workflowDonPeers)
+	ps, err := peers(hardcodedWorkflowDonPeers)
 	if err != nil {
 		panic(err)
 	}
@@ -337,7 +281,7 @@ func (c *deployAndInitializeCapabilitiesRegistryCommand) Run(args []string) {
 	}
 
 	// trigger DON
-	ps, err = peers(triggerDonPeers)
+	ps, err = peers(hardCodedTriggerDonPeers)
 	if err != nil {
 		panic(err)
 	}
@@ -369,7 +313,7 @@ func (c *deployAndInitializeCapabilitiesRegistryCommand) Run(args []string) {
 	}
 
 	// target DON
-	ps, err = peers(targetDonPeers)
+	ps, err = peers(hardcodedTargetDonPeers)
 	if err != nil {
 		panic(err)
 	}
