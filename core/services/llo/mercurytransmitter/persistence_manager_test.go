@@ -10,6 +10,7 @@ import (
 	"go.uber.org/zap/zapcore"
 	"go.uber.org/zap/zaptest/observer"
 
+	"github.com/smartcontractkit/chainlink-common/pkg/services/servicetest"
 	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils"
 	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils/pgtest"
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
@@ -60,8 +61,7 @@ func TestPersistenceManagerAsyncDelete(t *testing.T) {
 	err := pm.orm.Insert(ctx, transmissions)
 	require.NoError(t, err)
 
-	err = pm.Start(ctx)
-	require.NoError(t, err)
+	servicetest.Run(t, pm)
 
 	pm.AsyncDelete(transmissions[0].Hash())
 
