@@ -187,3 +187,7 @@ func (c *evmTxmClient) CallContract(ctx context.Context, a TxAttempt, blockNumbe
 func (c *evmTxmClient) HeadByHash(ctx context.Context, hash common.Hash) (*evmtypes.Head, error) {
 	return c.client.HeadByHash(ctx, hash)
 }
+
+func (c *evmTxmClient) BatchCallContext(ctx context.Context, b []rpc.BatchElem) error {
+	return c.client.BatchCallContext(ctx, b)
+}
