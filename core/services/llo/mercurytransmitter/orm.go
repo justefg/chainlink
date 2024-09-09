@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"math"
 
 	"github.com/lib/pq"
 
@@ -62,6 +63,10 @@ func (o *orm) Insert(ctx context.Context, transmissions []*Transmission) error {
 			signers[j] = uint8(sig.Signer)
 		}
 		h := t.Hash()
+		if t.SeqNr > math.MaxInt64 {
+			// this is to appease the linter but shouldn't ever happen
+			return fmt.Errorf("seqNr is too large (got: %d, max: %d)", t.SeqNr, math.MaxInt64)
+		}
 		records[i] = transmission{
 			DonID:            o.donID,
 			ServerURL:        t.ServerURL,
@@ -150,6 +155,10 @@ func (o *orm) Get(ctx context.Context, serverURL string) ([]*Transmission, error
 			return nil, errors.New("signatures and signers must have the same length")
 		}
 		for i, sig := range signatures {
+			if signers[i] > math.MaxUint8 {
+				// this is to appease the linter but shouldn't ever happen
+				return nil, fmt.Errorf("signer is too large (got: %d, max: %d)", signers[i], math.MaxUint8)
+			}
 			transmission.Sigs = append(transmission.Sigs, ocrtypes.AttributedOnchainSignature{
 				Signature: sig,
 				Signer:    commontypes.OracleID(signers[i]),

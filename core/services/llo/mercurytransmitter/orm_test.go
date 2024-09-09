@@ -74,6 +74,7 @@ func TestORM(t *testing.T) {
 		assert.Equal(t, transmissions[1], result[0])
 
 		err = orm.Prune(ctx, sURL, 1)
+		require.NoError(t, err)
 		result, err = orm.Get(ctx, sURL)
 		require.NoError(t, err)
 		require.Len(t, result, 1)

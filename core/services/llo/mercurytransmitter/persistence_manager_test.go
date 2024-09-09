@@ -89,6 +89,7 @@ func TestPersistenceManagerPrune(t *testing.T) {
 
 	pm, _ := bootstrapPersistenceManager(t, donID1, db)
 	err := pm.orm.Insert(ctx, transmissions[:25])
+	require.NoError(t, err)
 
 	pm2, _ := bootstrapPersistenceManager(t, donID2, db)
 	err = pm2.orm.Insert(ctx, transmissions[25:])

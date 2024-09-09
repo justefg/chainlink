@@ -8,11 +8,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap/zapcore"
 
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
-
 	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils"
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
-	"github.com/smartcontractkit/chainlink/v2/core/services/relay/evm/mercury/wsrpc/pb"
 )
 
 var _ asyncDeleter = &mockAsyncDeleter{}
@@ -27,13 +24,6 @@ func (m *mockAsyncDeleter) AsyncDelete(hash [32]byte) {
 }
 func (m *mockAsyncDeleter) DonID() uint32 {
 	return m.donID
-}
-
-// newMockAsyncDeleter
-
-type TestTransmissionWithReport struct {
-	tr  *pb.TransmitRequest
-	ctx ocrtypes.ReportContext
 }
 
 func Test_Queue(t *testing.T) {

@@ -445,9 +445,9 @@ func (r *Relayer) NewLLOProvider(rargs commontypes.RelayArgs, pargs commontypes.
 	} else {
 		clients := make(map[string]wsrpc.Client)
 		for _, server := range lloCfg.GetServers() {
-			client, err := r.mercuryPool.Checkout(context.Background(), privKey, server.PubKey, server.URL)
-			if err != nil {
-				return nil, err
+			client, err2 := r.mercuryPool.Checkout(context.Background(), privKey, server.PubKey, server.URL)
+			if err2 != nil {
+				return nil, err2
 			}
 			clients[server.URL] = client
 		}
