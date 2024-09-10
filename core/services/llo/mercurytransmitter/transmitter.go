@@ -252,8 +252,3 @@ func (mt *transmitter) Transmit(
 func (mt *transmitter) FromAccount() (ocrtypes.Account, error) {
 	return ocrtypes.Account(mt.fromAccount), nil
 }
-
-// LatestConfigDigestAndEpoch retrieves the latest config digest and epoch from the OCR2 contract.
-// func (mt *transmitter) LatestConfigDigestAndEpoch(ctx context.Context) (cd ocrtypes.ConfigDigest, epoch uint32, err error) {
-//     panic("not needed for OCR3")
-// }
