@@ -7,8 +7,8 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/smartcontractkit/libocr/commontypes"
-	ragetypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	"github.com/justefg/libocr/commontypes"
+	ragetypes "github.com/justefg/libocr/ragep2p/types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/sqlutil"
 

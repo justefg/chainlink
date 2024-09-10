@@ -24,8 +24,8 @@ import (
 
 	mercuryocr2 "github.com/smartcontractkit/chainlink/v2/core/services/ocr2/plugins/mercury"
 
-	libocr2 "github.com/smartcontractkit/libocr/offchainreporting2plus"
-	libocr2types "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	libocr2 "github.com/justefg/libocr/offchainreporting2plus"
+	libocr2types "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	"github.com/smartcontractkit/chainlink/v2/core/services/pipeline"
 	"github.com/smartcontractkit/chainlink/v2/core/services/relay/evm/mercury/types"

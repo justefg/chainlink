@@ -11,9 +11,9 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocrconfigurationstoreevmsimple"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	"github.com/justefg/libocr/gethwrappers2/ocr2aggregator"
+	"github.com/justefg/libocr/gethwrappers2/ocrconfigurationstoreevmsimple"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"
 

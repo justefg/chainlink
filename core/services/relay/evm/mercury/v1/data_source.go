@@ -11,7 +11,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/types/mercury"
 	v1types "github.com/smartcontractkit/chainlink-common/pkg/types/mercury/v1"

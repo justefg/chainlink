@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	ocr3 "github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3confighelper"
+	ocr3 "github.com/justefg/libocr/offchainreporting2plus/ocr3confighelper"
 
 	ocr2keepers30config "github.com/smartcontractkit/chainlink-automation/pkg/v3/config"
 	"github.com/smartcontractkit/chainlink/integration-tests/actions/automationv2"

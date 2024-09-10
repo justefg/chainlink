@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 

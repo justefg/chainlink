@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/consul/sdk/freeport"
-	ragep2ptypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	ragep2ptypes "github.com/justefg/libocr/ragep2p/types"
 	"github.com/stretchr/testify/require"
 
 	commonconfig "github.com/smartcontractkit/chainlink-common/pkg/config"

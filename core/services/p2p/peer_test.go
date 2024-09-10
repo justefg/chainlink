@@ -9,7 +9,7 @@ import (
 
 	"github.com/hashicorp/consul/sdk/freeport"
 	"github.com/prometheus/client_golang/prometheus"
-	ragetypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	ragetypes "github.com/justefg/libocr/ragep2p/types"
 	"github.com/stretchr/testify/require"
 
 	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils"

@@ -8,10 +8,10 @@ import (
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/smartcontractkit/libocr/networking/ragedisco"
-	nettypes "github.com/smartcontractkit/libocr/networking/types"
-	"github.com/smartcontractkit/libocr/ragep2p"
-	ragetypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	"github.com/justefg/libocr/networking/ragedisco"
+	nettypes "github.com/justefg/libocr/networking/types"
+	"github.com/justefg/libocr/ragep2p"
+	ragetypes "github.com/justefg/libocr/ragep2p/types"
 
 	commonlogger "github.com/smartcontractkit/chainlink-common/pkg/logger"
 	"github.com/smartcontractkit/chainlink-common/pkg/services"

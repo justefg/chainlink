@@ -12,7 +12,7 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/olekukonko/tablewriter"
 
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/confighelper"
+	"github.com/justefg/libocr/offchainreporting2plus/confighelper"
 
 	ocr2keepers20config "github.com/smartcontractkit/chainlink-automation/pkg/v2/config"
 

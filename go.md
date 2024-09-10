@@ -41,7 +41,7 @@ flowchart LR
   chainlink/v2 --> chainlink-starknet/relayer
   click chainlink-starknet/relayer href "https://github.com/smartcontractkit/chainlink-starknet"
   chainlink/v2 --> libocr
-  click libocr href "https://github.com/smartcontractkit/libocr"
+  click libocr href "https://github.com/justefg/libocr"
   chainlink/v2 --> tdh2/go/ocr2/decryptionplugin
   click tdh2/go/ocr2/decryptionplugin href "https://github.com/smartcontractkit/tdh2"
   chainlink/v2 --> tdh2/go/tdh2

@@ -8,9 +8,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	ocrTypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrTypes "github.com/justefg/libocr/offchainreporting2plus/types"
 
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/chains/evmutil"
+	"github.com/justefg/libocr/offchainreporting2plus/chains/evmutil"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/capabilities/datastreams"
 	v3 "github.com/smartcontractkit/chainlink-common/pkg/types/mercury/v3"

@@ -35,7 +35,7 @@ import (
 
 	"github.com/jmoiron/sqlx"
 
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting/types"
 
 	"github.com/smartcontractkit/chainlink/v2/core/capabilities"
 	remotetypes "github.com/smartcontractkit/chainlink/v2/core/capabilities/remote/types"

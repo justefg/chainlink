@@ -16,9 +16,9 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/umbracle/ethgo/abi"
 
-	ocr2config "github.com/smartcontractkit/libocr/offchainreporting2plus/confighelper"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3confighelper"
-	ocr2types "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocr2config "github.com/justefg/libocr/offchainreporting2plus/confighelper"
+	"github.com/justefg/libocr/offchainreporting2plus/ocr3confighelper"
+	ocr2types "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	"github.com/smartcontractkit/chainlink/core/scripts/chaincli/config"
 

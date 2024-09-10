@@ -7,8 +7,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	libocr2 "github.com/smartcontractkit/libocr/offchainreporting2plus"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3types"
+	libocr2 "github.com/justefg/libocr/offchainreporting2plus"
+	"github.com/justefg/libocr/offchainreporting2plus/ocr3types"
 
 	relaymercuryv1 "github.com/smartcontractkit/chainlink-data-streams/mercury/v1"
 	relaymercuryv2 "github.com/smartcontractkit/chainlink-data-streams/mercury/v2"

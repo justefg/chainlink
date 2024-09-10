@@ -3,7 +3,7 @@ package ocrcommon
 import (
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/libocr/commontypes"
+	"github.com/justefg/libocr/commontypes"
 
 	"github.com/smartcontractkit/chainlink/v2/core/chains/evm/config/chaintype"
 )

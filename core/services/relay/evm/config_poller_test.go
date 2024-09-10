@@ -19,13 +19,13 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocrconfigurationstoreevmsimple"
-	testoffchainaggregator2 "github.com/smartcontractkit/libocr/gethwrappers2/testocr2aggregator"
-	"github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median"
-	confighelper2 "github.com/smartcontractkit/libocr/offchainreporting2plus/confighelper"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
-	ocrtypes2 "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	"github.com/justefg/libocr/gethwrappers2/ocr2aggregator"
+	"github.com/justefg/libocr/gethwrappers2/ocrconfigurationstoreevmsimple"
+	testoffchainaggregator2 "github.com/justefg/libocr/gethwrappers2/testocr2aggregator"
+	"github.com/justefg/libocr/offchainreporting2/reportingplugin/median"
+	confighelper2 "github.com/justefg/libocr/offchainreporting2plus/confighelper"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
+	ocrtypes2 "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services/servicetest"
 

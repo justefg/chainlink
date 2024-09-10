@@ -1,8 +1,8 @@
 package types
 
 import (
-	"github.com/smartcontractkit/libocr/ragep2p"
-	ragetypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	"github.com/justefg/libocr/ragep2p"
+	ragetypes "github.com/justefg/libocr/ragep2p/types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"
 )

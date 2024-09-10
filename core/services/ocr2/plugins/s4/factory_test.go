@@ -10,7 +10,7 @@ import (
 
 	commonlogger "github.com/smartcontractkit/chainlink-common/pkg/logger"
 
-	"github.com/smartcontractkit/libocr/offchainreporting2/types"
+	"github.com/justefg/libocr/offchainreporting2/types"
 
 	"github.com/stretchr/testify/require"
 )

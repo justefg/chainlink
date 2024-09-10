@@ -26,8 +26,8 @@ import (
 	"github.com/smartcontractkit/seth"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
+	"github.com/justefg/libocr/gethwrappers/offchainaggregator"
+	"github.com/justefg/libocr/gethwrappers2/ocr2aggregator"
 
 	"github.com/smartcontractkit/havoc/k8schaos"
 

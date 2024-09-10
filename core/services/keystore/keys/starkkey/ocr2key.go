@@ -9,8 +9,8 @@ import (
 
 	"github.com/NethermindEth/juno/core/felt"
 	"github.com/NethermindEth/starknet.go/curve"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/chains/evmutil"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	"github.com/justefg/libocr/offchainreporting2plus/chains/evmutil"
+	"github.com/justefg/libocr/offchainreporting2plus/types"
 )
 
 var _ types.OnchainKeyring = &OCR2Key{}

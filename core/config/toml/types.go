@@ -12,7 +12,7 @@ import (
 	"go.uber.org/multierr"
 	"go.uber.org/zap/zapcore"
 
-	ocrcommontypes "github.com/smartcontractkit/libocr/commontypes"
+	ocrcommontypes "github.com/justefg/libocr/commontypes"
 
 	commonconfig "github.com/smartcontractkit/chainlink-common/pkg/config"
 

@@ -3,7 +3,7 @@ package testhelpers
 import (
 	"math/big"
 
-	"github.com/smartcontractkit/libocr/bigbigendian"
+	"github.com/justefg/libocr/bigbigendian"
 )
 
 func GenerateDefaultOCR2OnchainConfig(minValue *big.Int, maxValue *big.Int) ([]byte, error) {

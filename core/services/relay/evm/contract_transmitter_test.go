@@ -19,12 +19,12 @@ import (
 	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils"
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 
-	"github.com/smartcontractkit/libocr/commontypes"
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/chains/evmutil"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/types"
-	libocr "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	"github.com/justefg/libocr/commontypes"
+	"github.com/justefg/libocr/gethwrappers2/ocr2aggregator"
+	"github.com/justefg/libocr/offchainreporting2plus/chains/evmutil"
+	"github.com/justefg/libocr/offchainreporting2plus/types"
+	libocr "github.com/justefg/libocr/offchainreporting2plus/types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 )
 
 var sampleAddress = testutils.NewAddress()

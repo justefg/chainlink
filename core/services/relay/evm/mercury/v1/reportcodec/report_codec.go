@@ -9,7 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	pkgerrors "github.com/pkg/errors"
 
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	v1 "github.com/smartcontractkit/chainlink-common/pkg/types/mercury/v1"
 	"github.com/smartcontractkit/chainlink/v2/core/logger"

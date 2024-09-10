@@ -11,7 +11,7 @@ import (
 	"github.com/pelletier/go-toml"
 	pkgerrors "github.com/pkg/errors"
 
-	libocr2 "github.com/smartcontractkit/libocr/offchainreporting2plus"
+	libocr2 "github.com/justefg/libocr/offchainreporting2plus"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	"github.com/smartcontractkit/chainlink-common/pkg/loop/reportingplugins"

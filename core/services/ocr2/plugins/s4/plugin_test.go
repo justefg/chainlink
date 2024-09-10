@@ -20,7 +20,7 @@ import (
 	"github.com/stretchr/testify/mock"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	"github.com/justefg/libocr/offchainreporting2plus/types"
 )
 
 func createPluginConfig(maxEntries uint) *s4.PluginConfig {

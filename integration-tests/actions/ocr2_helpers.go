@@ -14,9 +14,9 @@ import (
 	"golang.org/x/sync/errgroup"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/confighelper"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	"github.com/justefg/libocr/offchainreporting2/reportingplugin/median"
+	"github.com/justefg/libocr/offchainreporting2plus/confighelper"
+	"github.com/justefg/libocr/offchainreporting2plus/types"
 
 	ctfClient "github.com/smartcontractkit/chainlink-testing-framework/client"
 

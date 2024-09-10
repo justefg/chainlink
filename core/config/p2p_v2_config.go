@@ -3,7 +3,7 @@ package config
 import (
 	commonconfig "github.com/smartcontractkit/chainlink-common/pkg/config"
 
-	ocrcommontypes "github.com/smartcontractkit/libocr/commontypes"
+	ocrcommontypes "github.com/justefg/libocr/commontypes"
 )
 
 type V2 interface {

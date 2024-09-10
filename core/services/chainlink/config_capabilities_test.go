@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/libocr/commontypes"
+	"github.com/justefg/libocr/commontypes"
 )
 
 func TestCapabilitiesConfig(t *testing.T) {

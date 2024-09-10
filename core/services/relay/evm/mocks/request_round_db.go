@@ -8,7 +8,7 @@ import (
 	evm "github.com/smartcontractkit/chainlink/v2/core/services/relay/evm"
 	mock "github.com/stretchr/testify/mock"
 
-	ocr2aggregator "github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
+	ocr2aggregator "github.com/justefg/libocr/gethwrappers2/ocr2aggregator"
 
 	sqlutil "github.com/smartcontractkit/chainlink-common/pkg/sqlutil"
 )

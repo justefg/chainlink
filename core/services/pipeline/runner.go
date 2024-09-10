@@ -254,7 +254,7 @@ func (r *runner) OnRunFinished(fn func(*Run)) {
 }
 
 var (
-	// github.com/smartcontractkit/libocr/offchainreporting2plus/internal/protocol.ReportingPluginTimeoutWarningGracePeriod
+	// github.com/justefg/libocr/offchainreporting2plus/internal/protocol.ReportingPluginTimeoutWarningGracePeriod
 	overtime           = 100 * time.Millisecond
 	overtimeThresholds = sqlutil.LogThresholds{
 		Warn: func(timeout time.Duration) time.Duration {

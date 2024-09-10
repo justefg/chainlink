@@ -11,8 +11,8 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	gethCommon "github.com/ethereum/go-ethereum/common"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/justefg/libocr/gethwrappers/offchainaggregator"
+	ocrtypes "github.com/justefg/libocr/offchainreporting/types"
 
 	"github.com/smartcontractkit/chainlink/v2/core/chains/evm/log"
 )

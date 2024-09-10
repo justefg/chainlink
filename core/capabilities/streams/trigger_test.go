@@ -10,9 +10,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	ocrTypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrTypes "github.com/justefg/libocr/offchainreporting2plus/types"
 
-	ragetypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	ragetypes "github.com/justefg/libocr/ragep2p/types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/capabilities"
 	"github.com/smartcontractkit/chainlink-common/pkg/capabilities/datastreams"

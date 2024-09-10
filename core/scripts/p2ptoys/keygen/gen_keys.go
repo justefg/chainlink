@@ -8,7 +8,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 
-	ragep2ptypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	ragep2ptypes "github.com/justefg/libocr/ragep2p/types"
 )
 
 func main() {

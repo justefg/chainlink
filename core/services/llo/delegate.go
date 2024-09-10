@@ -6,10 +6,10 @@ import (
 	"fmt"
 
 	"github.com/prometheus/client_golang/prometheus"
-	ocrcommontypes "github.com/smartcontractkit/libocr/commontypes"
-	ocr2plus "github.com/smartcontractkit/libocr/offchainreporting2plus"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3types"
-	ocr2types "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrcommontypes "github.com/justefg/libocr/commontypes"
+	ocr2plus "github.com/justefg/libocr/offchainreporting2plus"
+	"github.com/justefg/libocr/offchainreporting2plus/ocr3types"
+	ocr2types "github.com/justefg/libocr/offchainreporting2plus/types"
 	"gopkg.in/guregu/null.v4"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"testing"
 
-	ragep2ptypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	ragep2ptypes "github.com/justefg/libocr/ragep2p/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

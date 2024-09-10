@@ -29,9 +29,9 @@ import (
 	"go.uber.org/zap/zapcore"
 	"go.uber.org/zap/zaptest/observer"
 
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/confighelper"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3confighelper"
-	ocr2types "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	"github.com/justefg/libocr/offchainreporting2plus/confighelper"
+	"github.com/justefg/libocr/offchainreporting2plus/ocr3confighelper"
+	ocr2types "github.com/justefg/libocr/offchainreporting2plus/types"
 	"github.com/smartcontractkit/wsrpc/credentials"
 
 	mercurytypes "github.com/smartcontractkit/chainlink-common/pkg/types/mercury"

@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/smartcontractkit/libocr/ragep2p/types"
+	"github.com/justefg/libocr/ragep2p/types"
 )
 
 var libp2pPBPrefix = []byte{0x08, 0x01, 0x12, 0x40}

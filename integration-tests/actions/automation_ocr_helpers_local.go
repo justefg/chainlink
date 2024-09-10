@@ -13,9 +13,9 @@ import (
 	"github.com/rs/zerolog"
 	"gopkg.in/guregu/null.v4"
 
-	ocr2 "github.com/smartcontractkit/libocr/offchainreporting2plus/confighelper"
-	ocr3 "github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3confighelper"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocr2 "github.com/justefg/libocr/offchainreporting2plus/confighelper"
+	ocr3 "github.com/justefg/libocr/offchainreporting2plus/ocr3confighelper"
+	"github.com/justefg/libocr/offchainreporting2plus/types"
 
 	ocr2keepers20config "github.com/smartcontractkit/chainlink-automation/pkg/v2/config"
 	ocr2keepers30config "github.com/smartcontractkit/chainlink-automation/pkg/v3/config"

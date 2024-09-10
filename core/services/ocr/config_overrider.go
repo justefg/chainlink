@@ -10,7 +10,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting/types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/services"
 

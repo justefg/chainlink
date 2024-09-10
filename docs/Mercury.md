@@ -6,7 +6,7 @@
 
 [Contracts](https://github.com/smartcontractkit/chainlink/contracts/src/v0.8/llo-feeds)
 
-[OCR3 Config Documentation](https://github.com/smartcontractkit/libocr/blob/master/offchainreporting2plus/internal/config/ocr3config/public_config.go)
+[OCR3 Config Documentation](https://github.com/justefg/libocr/blob/master/offchainreporting2plus/internal/config/ocr3config/public_config.go)
 
 
 
@@ -113,7 +113,7 @@ observationSource = """
   ds1_median           [type=jsonparse path="data,mid"];
   ds1_bid              [type=jsonparse path="data,bid"];
   ds1_ask              [type=jsonparse path="data,ask"];
-  
+
   ds1_median_multiply  [type=multiply times=100000000];
   ds1_bid_multiply     [type=multiply times=100000000];
   ds1_ask_multiply     [type=multiply times=100000000];

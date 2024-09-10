@@ -8,8 +8,8 @@ import (
 
 	"github.com/lib/pq"
 	"github.com/pkg/errors"
-	ocrcommon "github.com/smartcontractkit/libocr/commontypes"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrcommon "github.com/justefg/libocr/commontypes"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/sqlutil"
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
@@ -227,12 +227,12 @@ func (d *db) StorePendingTransmission(ctx context.Context, t ocrtypes.ReportTime
 		config_digest,
 		epoch,
 		round,
-	
+
 		time,
 		extra_hash,
 		report,
 		attributed_signatures,
-	
+
 		created_at,
 		updated_at
 	)
@@ -242,12 +242,12 @@ func (d *db) StorePendingTransmission(ctx context.Context, t ocrtypes.ReportTime
 		config_digest = EXCLUDED.config_digest,
 		epoch = EXCLUDED.epoch,
 		round = EXCLUDED.round,
-	
+
 		time = EXCLUDED.time,
 		extra_hash = EXCLUDED.extra_hash,
 		report = EXCLUDED.report,
 		attributed_signatures = EXCLUDED.attributed_signatures,
-	
+
 		updated_at = NOW()
 	`
 

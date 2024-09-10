@@ -20,7 +20,7 @@ import (
 	"github.com/onsi/gomega"
 	"github.com/stretchr/testify/require"
 
-	ocr3 "github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3confighelper"
+	ocr3 "github.com/justefg/libocr/offchainreporting2plus/ocr3confighelper"
 
 	ocr2keepers30config "github.com/smartcontractkit/chainlink-automation/pkg/v3/config"
 	ctfTestEnv "github.com/smartcontractkit/chainlink-testing-framework/docker/test_env"

@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	ocr3 "github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3confighelper"
+	ocr3 "github.com/justefg/libocr/offchainreporting2plus/ocr3confighelper"
 	"go.uber.org/zap/zapcore"
 
 	ocr2keepers30config "github.com/smartcontractkit/chainlink-automation/pkg/v3/config"

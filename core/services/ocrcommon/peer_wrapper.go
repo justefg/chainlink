@@ -6,11 +6,11 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/smartcontractkit/libocr/networking/rageping"
+	"github.com/justefg/libocr/networking/rageping"
 
-	ocrnetworking "github.com/smartcontractkit/libocr/networking"
-	ocr1types "github.com/smartcontractkit/libocr/offchainreporting/types"
-	ocr2types "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrnetworking "github.com/justefg/libocr/networking"
+	ocr1types "github.com/justefg/libocr/offchainreporting/types"
+	ocr2types "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	commonlogger "github.com/smartcontractkit/chainlink-common/pkg/logger"
 	"github.com/smartcontractkit/chainlink-common/pkg/services"

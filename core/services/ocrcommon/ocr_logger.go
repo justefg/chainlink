@@ -3,7 +3,7 @@ package ocrcommon
 import (
 	"context"
 
-	ocrtypes "github.com/smartcontractkit/libocr/commontypes"
+	ocrtypes "github.com/justefg/libocr/commontypes"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/logger"
 	"github.com/smartcontractkit/chainlink-common/pkg/services"

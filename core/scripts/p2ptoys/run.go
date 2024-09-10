@@ -16,8 +16,8 @@ import (
 	"github.com/smartcontractkit/chainlink/v2/core/logger"
 	"github.com/smartcontractkit/chainlink/v2/core/services/p2p"
 
-	"github.com/smartcontractkit/libocr/ragep2p"
-	ragetypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	"github.com/justefg/libocr/ragep2p"
+	ragetypes "github.com/justefg/libocr/ragep2p/types"
 
 	p2ptypes "github.com/smartcontractkit/chainlink/v2/core/services/p2p/types"
 )

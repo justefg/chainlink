@@ -8,7 +8,7 @@ import (
 	ocr "github.com/smartcontractkit/chainlink/v2/core/services/ocr"
 	mock "github.com/stretchr/testify/mock"
 
-	offchainaggregator "github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
+	offchainaggregator "github.com/justefg/libocr/gethwrappers/offchainaggregator"
 
 	sqlutil "github.com/smartcontractkit/chainlink-common/pkg/sqlutil"
 )

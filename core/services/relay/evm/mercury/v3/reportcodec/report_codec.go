@@ -7,7 +7,7 @@ import (
 
 	pkgerrors "github.com/pkg/errors"
 
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	v3 "github.com/smartcontractkit/chainlink-common/pkg/types/mercury/v3"
 

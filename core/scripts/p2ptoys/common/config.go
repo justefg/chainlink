@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/smartcontractkit/libocr/commontypes"
-	ragep2ptypes "github.com/smartcontractkit/libocr/ragep2p/types"
+	"github.com/justefg/libocr/commontypes"
+	ragep2ptypes "github.com/justefg/libocr/ragep2p/types"
 )
 
 type Config struct {

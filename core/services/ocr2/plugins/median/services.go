@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"time"
 
-	libocr_median "github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median"
-	libocr "github.com/smartcontractkit/libocr/offchainreporting2plus"
+	libocr_median "github.com/justefg/libocr/offchainreporting2/reportingplugin/median"
+	libocr "github.com/justefg/libocr/offchainreporting2plus"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/loop"
 	"github.com/smartcontractkit/chainlink-common/pkg/types"

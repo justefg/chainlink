@@ -11,8 +11,8 @@ import (
 	"github.com/jonboulle/clockwork"
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/libocr/commontypes"
-	libocr2 "github.com/smartcontractkit/libocr/offchainreporting2plus"
+	"github.com/justefg/libocr/commontypes"
+	libocr2 "github.com/justefg/libocr/offchainreporting2plus"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/sqlutil"
 	"github.com/smartcontractkit/chainlink-common/pkg/utils/mailbox"

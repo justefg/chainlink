@@ -8,9 +8,9 @@ import (
 	"testing"
 
 	"github.com/pelletier/go-toml"
-	"github.com/smartcontractkit/libocr/offchainreporting2/types"
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3types"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	"github.com/justefg/libocr/offchainreporting2/types"
+	"github.com/justefg/libocr/offchainreporting2plus/ocr3types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/proto"

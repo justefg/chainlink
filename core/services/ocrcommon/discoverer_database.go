@@ -8,7 +8,7 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
-	ocrnetworking "github.com/smartcontractkit/libocr/networking/types"
+	ocrnetworking "github.com/justefg/libocr/networking/types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/sqlutil"
 )

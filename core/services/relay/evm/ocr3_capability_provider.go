@@ -1,7 +1,7 @@
 package evm
 
 import (
-	"github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3types"
+	"github.com/justefg/libocr/offchainreporting2plus/ocr3types"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/types"
 )

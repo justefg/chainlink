@@ -22,7 +22,7 @@ import (
 	"github.com/slack-go/slack"
 	"github.com/stretchr/testify/require"
 
-	ocr3 "github.com/smartcontractkit/libocr/offchainreporting2plus/ocr3confighelper"
+	ocr3 "github.com/justefg/libocr/offchainreporting2plus/ocr3confighelper"
 	"github.com/smartcontractkit/wasp"
 
 	ocr2keepers30config "github.com/smartcontractkit/chainlink-automation/pkg/v3/config"

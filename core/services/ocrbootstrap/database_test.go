@@ -6,7 +6,7 @@ import (
 	"github.com/jmoiron/sqlx"
 	"github.com/stretchr/testify/require"
 
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 
 	"github.com/smartcontractkit/chainlink/v2/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/v2/core/internal/testutils"
@@ -22,7 +22,7 @@ func MustInsertOCRBootstrapSpec(t *testing.T, db *sqlx.DB) job.BootstrapSpec {
 
 	spec := job.BootstrapSpec{}
 	require.NoError(t, db.Get(&spec, `INSERT INTO bootstrap_specs (
-		relay, relay_config, contract_id, monitoring_endpoint, 
+		relay, relay_config, contract_id, monitoring_endpoint,
 		blockchain_timeout, contract_config_tracker_poll_interval, contract_config_confirmations,
 		created_at, updated_at) VALUES (
 		'evm', '{}', $1, $2, 0, 0, 0, NOW(), NOW()

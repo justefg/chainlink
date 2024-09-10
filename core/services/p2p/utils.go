@@ -3,7 +3,7 @@ package p2p
 import (
 	"context"
 
-	ocrnetworking "github.com/smartcontractkit/libocr/networking/types"
+	ocrnetworking "github.com/justefg/libocr/networking/types"
 )
 
 var _ ocrnetworking.DiscovererDatabase = &InMemoryDiscovererDatabase{}

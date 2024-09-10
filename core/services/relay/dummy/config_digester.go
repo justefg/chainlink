@@ -1,7 +1,7 @@
 package dummy
 
 import (
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2plus/types"
+	ocrtypes "github.com/justefg/libocr/offchainreporting2plus/types"
 )
 
 // Stub config digester that uses a static config digest

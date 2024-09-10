@@ -7,7 +7,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	ocr "github.com/smartcontractkit/libocr/offchainreporting2plus"
+	ocr "github.com/justefg/libocr/offchainreporting2plus"
 
 	"github.com/smartcontractkit/chainlink-common/pkg/loop"
 	"github.com/smartcontractkit/chainlink-common/pkg/sqlutil"

@@ -33,11 +33,11 @@ import (
 	"go.uber.org/zap/zaptest/observer"
 	"gopkg.in/guregu/null.v4"
 
-	ocrcommontypes "github.com/smartcontractkit/libocr/commontypes"
-	"github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
-	"github.com/smartcontractkit/libocr/gethwrappers/testoffchainaggregator"
-	"github.com/smartcontractkit/libocr/offchainreporting/confighelper"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	ocrcommontypes "github.com/justefg/libocr/commontypes"
+	"github.com/justefg/libocr/gethwrappers/offchainaggregator"
+	"github.com/justefg/libocr/gethwrappers/testoffchainaggregator"
+	"github.com/justefg/libocr/offchainreporting/confighelper"
+	ocrtypes "github.com/justefg/libocr/offchainreporting/types"
 
 	commonconfig "github.com/smartcontractkit/chainlink-common/pkg/config"
 	"github.com/smartcontractkit/chainlink-common/pkg/services/servicetest"

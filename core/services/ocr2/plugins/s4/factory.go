@@ -3,8 +3,8 @@ package s4
 import (
 	s4_orm "github.com/smartcontractkit/chainlink/v2/core/services/s4"
 
-	"github.com/smartcontractkit/libocr/commontypes"
-	"github.com/smartcontractkit/libocr/offchainreporting2/types"
+	"github.com/justefg/libocr/commontypes"
+	"github.com/justefg/libocr/offchainreporting2/types"
 )
 
 const S4ReportingPluginName = "S4Reporting"

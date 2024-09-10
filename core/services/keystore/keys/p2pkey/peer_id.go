@@ -8,7 +8,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/smartcontractkit/libocr/ragep2p/types"
+	"github.com/justefg/libocr/ragep2p/types"
 )
 
 const peerIDPrefix = "p2p_"
